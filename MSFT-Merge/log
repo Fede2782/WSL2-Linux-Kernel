@@ -1,11 +1,11 @@
 Name                                               SHA1
 ----                                               ----
-config/wsl-6.6                                     6bb42a690a802743d04a92968efe82c668454644
+config/wsl-6.6                                     1b146c6c97a0398d02ebc01b83611400fb45cc29
 feature/arm64-hyperv-hypercall-interface/6.6       8db985fdc14b63b0520d4286eaf57b04b25e00a4
-feature/arm64-hyperv-synthetic-clocks-timers/6.6   b63263237d73f1e1d76e2c2049e31b607ef78bec
-feature/dxgkrnl/6.6                                423e5044c57566f8267bbb20cf7cf57d1aefb040
-feature/hvlite_virtio_pmem/6.6                     7d955beb0207d880fa1862b1ace8487057b5aa6c
+feature/arm64-hyperv-synthetic-clocks-timers/6.6   27ff58a87b8e8f33461b2443efe4dfa6487ad352
+feature/dxgkrnl/6.6                                d4ec8a2216634e7c0ca058214febce3a2f029bc6
+feature/hvlite_virtio_pmem/6.6                     ed182130a52524b3225bd20f88dbdec80b8f5bbe
+feature/wsl-module-script/6.6                      c313d7377ddbf534848625cce7f175389e553e48
 fix/hv_utils_clock/6.6                             a34090e9209d3d3db3d97aa567bb323ebc7620a4
-fix/xsaves-lbr/v6.6                                ea0740024a0f0c7c6b8844492e3fa9eeb1289a83
-product/wsl/readme/6.6                             9e964c9ff297f4c6eca78a5bb67fccc56384e100
+product/wsl/readme/6.6                             3c7e4de9ac43d3e052f8d9247cbd79fed1d8999f
 product/wsl/security/6.6                           c9cb753bbd093f0599408e24292aba20eed103f2

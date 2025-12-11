@@ -51,7 +51,13 @@ int hw_breakpoint_slots(int type)
 	READ_WB_REG_CASE(OFF, 4, REG, T, VAL);		\
 	READ_WB_REG_CASE(OFF, 5, REG, T, VAL);		\
 	READ_WB_REG_CASE(OFF, 6, REG, T, VAL);		\
-	READ_WB_REG_CASE(OFF, 7, REG, T, VAL);
+	READ_WB_REG_CASE(OFF, 7, REG, T, VAL);		\
+	READ_WB_REG_CASE(OFF, 8, REG, T, VAL);		\
+	READ_WB_REG_CASE(OFF, 9, REG, T, VAL);		\
+	READ_WB_REG_CASE(OFF, 10, REG, T, VAL);		\
+	READ_WB_REG_CASE(OFF, 11, REG, T, VAL);		\
+	READ_WB_REG_CASE(OFF, 12, REG, T, VAL);		\
+	READ_WB_REG_CASE(OFF, 13, REG, T, VAL);
 
 #define GEN_WRITE_WB_REG_CASES(OFF, REG, T, VAL)	\
 	WRITE_WB_REG_CASE(OFF, 0, REG, T, VAL);		\
@@ -61,7 +67,13 @@ int hw_breakpoint_slots(int type)
 	WRITE_WB_REG_CASE(OFF, 4, REG, T, VAL);		\
 	WRITE_WB_REG_CASE(OFF, 5, REG, T, VAL);		\
 	WRITE_WB_REG_CASE(OFF, 6, REG, T, VAL);		\
-	WRITE_WB_REG_CASE(OFF, 7, REG, T, VAL);
+	WRITE_WB_REG_CASE(OFF, 7, REG, T, VAL);		\
+	WRITE_WB_REG_CASE(OFF, 8, REG, T, VAL);		\
+	WRITE_WB_REG_CASE(OFF, 9, REG, T, VAL);		\
+	WRITE_WB_REG_CASE(OFF, 10, REG, T, VAL);	\
+	WRITE_WB_REG_CASE(OFF, 11, REG, T, VAL);	\
+	WRITE_WB_REG_CASE(OFF, 12, REG, T, VAL);	\
+	WRITE_WB_REG_CASE(OFF, 13, REG, T, VAL);
 
 static u64 read_wb_reg(int reg, int n, int t)
 {
@@ -221,7 +233,7 @@ static int hw_breakpoint_control(struct perf_event *bp,
 		}
 		enable = csr_read64(LOONGARCH_CSR_CRMD);
 		csr_write64(CSR_CRMD_WE | enable, LOONGARCH_CSR_CRMD);
-		if (bp->hw.target)
+		if (bp->hw.target && test_tsk_thread_flag(bp->hw.target, TIF_LOAD_WATCH))
 			regs->csr_prmd |= CSR_PRMD_PWE;
 		break;
 	case HW_BREAKPOINT_UNINSTALL:
